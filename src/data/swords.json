@@ -1,0 +1,128 @@
+[
+  {
+    "id": "dragon-fire",
+    "name": "شمشیر اژدهایان کوکستان اتشی",
+    "price": 12000,
+    "type": "شمشیر",
+    "img": "1.jfif"
+  },
+  {
+    "id": "shadow-sword",
+    "name": "شمشیر سایه",
+    "price": 9800,
+    "type": "شمشیر",
+    "img": "2.jfif"
+  },
+  {
+    "id": "darkness-blade",
+    "name": "شمشیر تاریکی",
+    "price": 15000,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "light-blade",
+    "name": "شمشیر روشنایی",
+    "price": 8700,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "blood-sword",
+    "name": "شمشیر خون",
+    "price": 13200,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "ghost-blade",
+    "name": "شمشیر شبح",
+    "price": 14300,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "cursed-blade",
+    "name": "شمشیر نفرین‌شده",
+    "price": 16600,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "gods-sword",
+    "name": "شمشیر خدایان",
+    "price": 19900,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "shadow-blades",
+    "name": "شمشیر سایه‌ها",
+    "price": 15700,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "dragon-blade",
+    "name": "شمشیر اژدها",
+    "price": 18800,
+    "type": "شمشیر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "fire-spear",
+    "name": "نیزه آتشین",
+    "price": 10200,
+    "type": "نیزه",
+    "img": "0.jfif"
+  },
+  {
+    "id": "frozen-spear",
+    "name": "نیزه یخ‌زده",
+    "price": 11100,
+    "type": "نیزه",
+    "img": "0.jfif"
+  },
+  {
+    "id": "crushing-mace",
+    "name": "گرز کوبنده",
+    "price": 13700,
+    "type": "گرز",
+    "img": "0.jfif"
+  },
+  {
+    "id": "lightning-mace",
+    "name": "گرز برق‌آسا",
+    "price": 14500,
+    "type": "گرز",
+    "img": "0.jfif"
+  },
+  {
+    "id": "dragon-armor",
+    "name": "زره اژدها",
+    "price": 20000,
+    "type": "زره",
+    "img": "0.jfif"
+  },
+  {
+    "id": "shadow-armor",
+    "name": "زره سایه‌ها",
+    "price": 17500,
+    "type": "زره",
+    "img": "0.jfif"
+  },
+  {
+    "id": "wild-axe",
+    "name": "تبر وحشی",
+    "price": 16000,
+    "type": "تبر",
+    "img": "0.jfif"
+  },
+  {
+    "id": "twin-axe",
+    "name": "تبر دوقلو",
+    "price": 17000,
+    "type": "تبر",
+    "img": "0.jfif"
+  }
+]

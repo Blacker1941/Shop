@@ -1,0 +1,159 @@
+.fancy-bg {
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: "Vazirmatn", sans-serif;
+  margin-top: 53px;
+  border-radius: 13px;
+}
+body.dark .fancy-bg {
+  background: linear-gradient(to bottom right, #0c0c0c, #1b1b2f);
+  color: #f5f5f5;
+}
+body.light .fancy-bg {
+    background: linear-gradient(to bottom right, #f5f5f5, #ffffff);
+    color: #1a1a1a;
+}
+.title {
+    text-align: center;
+    font-size: 100px;
+    text-shadow: 0 0 20px #8b00d1;
+    margin: 0px;
+    margin-bottom: 13px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+}
+
+.search-box.enhanced {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.search-box.enhanced input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+}
+
+body.dark .search-box.enhanced input {
+background: #ffffff;
+  color: #000000;
+}
+body.light .search-box.enhanced input {
+  background: #000000;
+  color: #ffffff;
+}
+body.light .search-box.enhanced input::placeholder {
+  color: #ffffff8f;                
+}
+body.dark .search-box.enhanced input::placeholder {
+  color: #0000009d;                
+}
+
+.search-box.enhanced button {
+  padding: 12px 16px;
+  background: #8b00d1;
+  border: none;
+  color: white;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-box.enhanced button:hover {
+  background: #6d00aa;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #1d1d2f;
+  border-radius: 0 0 6px 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding-left: 0px;
+}
+
+.suggestions li {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #333;
+  color: #ccc;
+}
+
+.suggestions li:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.selected-info {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.sword-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  padding: 20px 24px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(139, 0, 209, 0.4);
+  text-align: right;
+}
+
+.sword-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+body.dark .search-box.enhanced input {
+    color: #fff;
+}
+body.light .search-box.enhanced input {
+    color: #000000;
+}
+
+.sword-card p {
+  font-size: 12px;
+}
+
+body.dark .search-box.enhanced input {
+  color: #000000;
+}
+body.light .search-box.enhanced input {
+  color: #ffffff;
+}
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+  background: #f0f0f0;
+}
+
+.suggestion-img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
