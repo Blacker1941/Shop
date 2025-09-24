@@ -1,11 +1,30 @@
-.container{
-    background-color: #3b2828;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+    background-image: url(../public/img/purple.jpg);
+  background-size: cover;      
+  background-position: center;  
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
 }
 :root {
-  --topbar-bg: #fafafa;
-  --hover-color: #7500c4;
-  --topbar-dark: #000000;
-  --font-size-base: 0.9rem;
-  --font-size-icon: 1.2rem;
-  --topbar-brd: #8b00d1;
+  --bg-light: #f5f0ff;
+  --card-light: #ffffff;
+  --text-light: #222222;
+  --accent-light: #9b59b6;
+  --btn-bg-light: #9b59b6;
+  --btn-text-light: #ffffff;
+  
+  --bg-dark: #1e1b2f;
+  --card-dark: #2c2545;
+  --text-dark: #f0e6ff;
+  --accent-dark: #7a23c3;
+  --btn-bg-dark: #d29cff;
+  --btn-text-dark: #1e1b2f;
+  
+  --input-radius: 8px;
+  --btn-radius: 8px;
 }

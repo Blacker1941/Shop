@@ -19,9 +19,11 @@ const translations = {
 
 const FantasyShopHome = () => {
   const [search, setSearch] = useState("");
-  const { lang } = useLanguage(); // گرفتن زبان از Context
+  const { lang } = useLanguage();
+  
   const navigate = useNavigate();
 
+  // TODO: Check && ?? || and includes 
   const suggestions = swordData.filter(
     (sword) =>
       search &&

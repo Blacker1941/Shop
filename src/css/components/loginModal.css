@@ -1,0 +1,193 @@
+.login-page, .register-page {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+body.light .login-page,
+body.light .register-page {
+  /* background-color: var(--card-light); */
+  color: var(--text-dark);
+  border: 2px solid var(--accent-light);
+  margin-top: 13%;
+}
+
+body.light .login-page h2,
+body.light .register-page h2 {
+  color: var(--accent-light);
+  margin: 1px;
+  text-align: center;
+}
+
+body.light .login-page input,
+body.light .register-page input {
+  padding: 0.6rem 1rem;
+  border-radius: var(--input-radius);
+  border: 1px solid var(--accent-light);
+  outline: none;
+  font-size: 1rem;
+  margin: 5px 0;
+  width: -webkit-fill-available;
+}
+
+body.light .login-page input:focus,
+body.light .register-page input:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 8px var(--accent-light);
+}
+
+body.light .login-page button,
+body.light .register-page button {
+  padding: 0.7rem 1rem;
+  border-radius: var(--btn-radius);
+  border: none;
+  background-color: var(--btn-bg-light);
+  color: var(--btn-text-light);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.light .login-page button:hover,
+body.light .register-page button:hover {
+  background-color: #8e44ad;
+}
+
+body.light .login-page p,
+body.light .register-page p {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+body.light .login-page a,
+body.light .register-page a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body.light .login-page a:hover,
+body.light .register-page a:hover {
+  text-decoration: underline;
+}
+
+
+body.dark .login-page,
+body.dark .register-page {
+  /* background-color: var(--card-dark); */
+  color: var(--text-dark);
+  border: 2px solid var(--accent-dark);
+  margin-top: 13%;
+}
+
+.login-page,
+.register-page {
+  direction:rtl;
+}
+
+body.dark .login-page h2,
+body.dark .register-page h2 {
+    color: var(--accent-dark);
+    margin: 1px;
+    text-align: center;
+}
+
+body.dark .login-page input,
+body.dark .register-page input {
+  padding: 0.6rem 1rem;
+  border-radius: var(--input-radius);
+  border: 1px solid var(--accent-dark);
+  outline: none;
+  background-color: #3b2f5c;
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin: 5px 0;
+  width: -webkit-fill-available;
+}
+
+body.dark .login-page input:focus,
+body.dark .register-page input:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 8px var(--accent-dark);
+}
+
+body.dark .login-page button,
+body.dark .register-page button {
+  padding: 0.7rem 1rem;
+  border-radius: var(--btn-radius);
+  border: none;
+  background-color: var(--btn-bg-dark);
+  color: var(--btn-text-dark);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+body.dark .login-page button:hover,
+body.dark .register-page button:hover {
+  background-color: #b178ff;
+}
+
+body.dark .login-page p,
+body.dark .register-page p {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+body.dark .login-page a,
+body.dark .register-page a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body.dark .login-page a:hover,
+body.dark .register-page a:hover {
+  text-decoration: underline;
+}
+.eye{
+  position: absolute;
+  transform: translateY(9%);
+  background-color: #ff000000 !important;
+  font-size: larger;
+}
+body.light .eye{
+  color: var(--btn-text-dark )!important;
+}
+body.dark .eye{
+  color: var(--btn-text-light )!important;
+}
+.mb-4{
+    display: flex;
+    text-align: right;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.text-sm {
+  padding-left: 72%;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+  animation: siren 1s infinite alternate;
+}
+
+@keyframes siren {
+  from {
+    text-shadow: 0 0 5px #ff0000;
+  }
+  to {
+    text-shadow: 0 0 25px #ff0000;
+  }
+}
+.Toastify__close-button {
+  top: 10px !important;
+  right: 82% !important;
+}

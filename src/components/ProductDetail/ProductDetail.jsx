@@ -10,14 +10,25 @@ const ProductDetail = () => {
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
 
-  const [showToast, setShowToast] = useState(false); // برای نمایش پیام
+  const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+
+  const [quantity, setQuantity] = useState(0); // تعداد محصول در سبد
 
   // بارگذاری نظرات
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem(`reviews_${id}`)) || [];
     setReviews(saved);
   }, [id]);
+
+  // بارگذاری تعداد محصول از localStorage
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find((item) => item.id === product?.id);
+    if (existing) {
+      setQuantity(existing.quantity);
+    }
+  }, [product?.id]);
 
   const saveReviews = (updated) => {
     setReviews(updated);
@@ -31,27 +42,43 @@ const ProductDetail = () => {
     setNewReview("");
   };
 
-  const handleAddToCart = () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existing = cart.find(item => item.id === product.id);
-    if (!existing) {
-      cart.push({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        img: product.img,
-        quantity: 1
-      });
-      localStorage.setItem("cart", JSON.stringify(cart));
-      setToastMessage("محصول به سبد خرید اضافه شد!");
-      setShowToast(true);
-      // بعد از 3 ثانیه پیام مخفی شود
-      setTimeout(() => setShowToast(false), 3000);
+  const updateCart = (newQuantity) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (newQuantity <= 0) {
+      cart = cart.filter((item) => item.id !== product.id);
+      setQuantity(0);
     } else {
-      setToastMessage("این محصول قبلا به سبد اضافه شده!");
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
+      const existing = cart.find((item) => item.id === product.id);
+      if (existing) {
+        existing.quantity = newQuantity;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          img: product.img,
+          quantity: newQuantity
+        });
+      }
+      setQuantity(newQuantity);
     }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
+  const handleAddToCart = () => {
+    updateCart(quantity + 1);
+    setToastMessage("محصول به سبد خرید اضافه شد!");
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  const handleRemoveFromCart = () => {
+    updateCart(quantity - 1);
+    setToastMessage("تعداد محصول کاهش یافت!");
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   if (!product) return <div>محصولی یافت نشد.</div>;
@@ -66,7 +93,17 @@ const ProductDetail = () => {
       <p>نوع: {product.type}</p>
       <p>این محصول دارای ویژگی‌های خاصی است...</p>
 
-      <button className="buy-btn" onClick={handleAddToCart}>خرید</button>
+      {quantity === 0 ? (
+        <button className="buy-btn" onClick={handleAddToCart}>
+          خرید
+        </button>
+      ) : (
+        <div className="quantity-controls">
+          <button className="qty-btn1" onClick={handleRemoveFromCart}>-</button>
+          <span className="qty-display">{quantity}</span>
+          <button className="qty-btn2" onClick={handleAddToCart}>+</button>
+        </div>
+      )}
 
       <div className="reviews-section">
         <h3>نظرات کاربران</h3>

@@ -2,21 +2,45 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import TopBar from './components/topbar/Topbar.jsx';
 import HomeMenu from './components/HomeMenu/HomeMenu.jsx';
-import ItemList from './components/ItemList/ItemList.jsx';
-import ProductDetail from './components/ProductDetail/ProductDetail.jsx';
+import routes from "./routes";
 import { LanguageProvider } from "./LanguageContext";
 
 function App() {
   return (
     <LanguageProvider>
       <TopBar />
-      <div className="container" style={{ display: "flex" }}>
-        <HomeMenu />
-        <Routes>
-          <Route path="/" element={<ItemList />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-        </Routes>
-      </div>
+      <Routes>
+        {routes.map((r) => {
+          // مسیرهای ورود و ثبت‌نام بدون HomeMenu
+          if (r.path === "/login" || r.path === "/register") {
+            return (
+              <Route
+                key={r.path}
+                path={r.path}
+                element={
+                  <div className="container" style={{ padding: "2rem", flex: 1 }}>
+                    {r.element}
+                  </div>
+                }
+              />
+            );
+          }
+
+          // مسیرهای اصلی با HomeMenu
+          return (
+            <Route
+              key={r.path}
+              path={r.path}
+              element={
+                <div className="container" style={{ display: "flex" }}>
+                  <HomeMenu />
+                  <div style={{ flex: 1 }}>{r.element}</div>
+                </div>
+              }
+            />
+          );
+        })}
+      </Routes>
     </LanguageProvider>
   );
 }

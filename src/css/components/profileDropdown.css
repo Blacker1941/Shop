@@ -1,0 +1,101 @@
+
+[data-theme="light"] .profile-dropdown {
+  background: var(--card-light);
+  color: var(--text-light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+[data-theme="light"] .btn-primary {
+  background: var(--btn-bg-light);
+  color: var(--btn-text-light);
+}
+
+[data-theme="light"] .btn-secondary {
+  background: #f1f1f1;
+  color: var(--text-light);
+}
+
+[data-theme="light"] .btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+
+[data-theme="dark"] .profile-dropdown {
+  background: var(--card-dark);
+  color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .btn-primary {
+  background: var(--btn-bg-dark);
+  color: var(--btn-text-dark);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: #3b335a;
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .btn-danger {
+  background: #ff4c61;
+  color: #fff;
+}
+
+
+.profile-dropdown {
+  padding: 16px;
+  border-radius: 12px;
+  min-width: 220px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 1000;
+  box-shadow: 0 8px 20px var(--accent-dark);
+  font-family: sans-serif;
+  background: linear-gradient(135deg, var(--accent-dark), #410463);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.email {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.last-login {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 6px 0 12px;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}

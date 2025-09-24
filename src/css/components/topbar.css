@@ -1,31 +1,39 @@
-body.dark {
-  --text-color: #fff;
-}
-body.light {
-  --text-color: #000000;
-}
 
 .topbar {
+  box-sizing: border-box; /* این خط خیلی مهمه */
   width: 100%;
   height: 48px;
-  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-base, 1rem);
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 99;
-}
-body.dark .topbar{
-    background-color: var(--topbar-dark);
-    border-bottom: 1px solid var(--topbar-brd);
-    border-radius: 0 0 50px 50px;
-}
-body.light .topbar {
-  background-color: var(--topbar-bg);
-  border-bottom: 1px solid var(--topbar-brd);
+  border-bottom: 1px solid var(--topbar-brd, #ccc);
   border-radius: 0 0 50px 50px;
+  padding: 0 50px; /* padding اضافه مشکلی ایجاد نمیکنه با box-sizing */
+  transition: all 0.3s ease;
+  background-color: var(--card-dark);
+  color: var(--text-dark);
 }
+
+
+
+body.light .topbar {
+  background-color: var(--card-light);
+  color: var(--text-light);
+  border-bottom: 1px solid var(--topbar-brd, #d1b3e0);
+}
+
+
+body.dark .topbar {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--topbar-brd, #4a3f66);
+}
+
 
 .topbar-left,
 .topbar-center,
@@ -33,44 +41,72 @@ body.light .topbar {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 50px;
 }
-.topbar-left{
-  padding: 0 0 0 50px;
-}
+
 .topbar-left .logo-icon {
   font-size: 1.5rem;
   cursor: pointer;
   transition: transform 0.2s ease;
+  color: white;
+}
+
+body.light .topbar-left .logo-icon{
+    color: black;
 }
 
 .brand-name {
   font-weight: bold;
   font-size: 1.1rem;
+  color: white; 
+  cursor: pointer;
+}
+
+
+body.light .brand-name {
+  color: black;
 }
 
 .topbar-center {
   flex: 1;
   justify-content: center;
   font-weight: bold;
+  color: var(--accent-dark);
+}
+
+
+body.light .topbar-center {
+  color: var(--accent-light);
 }
 
 .promo-text {
   transition: all 0.5s ease-in-out;
-  font-size: var(--font-size-base);
-  color: var(--text-color);
+  font-size: var(--font-size-base, 1rem);
+  color: #ab6fde;
   text-align: center;
+  text-shadow: 0 0 5px var(--accent-dark);
 }
+
+
+body.light .promo-text {
+  color: var(--accent-light);
+  text-shadow: 0 0 5px var(--accent-light);
+}
+
 
 .icon-btn {
   background: none;
   border: none;
-  color: var(--text-color);
-  font-size: var(--font-size-icon);
+  color: inherit;
+  font-size: var(--font-size-icon, 1.2rem);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .icon-btn:hover {
-  color: var(--hover-color);
+  color: var(--btn-bg-dark); 
+  transform: scale(1.1);
+}
+
+body.light .icon-btn:hover {
+  color: var(--btn-bg-light);
 }

@@ -1,36 +1,68 @@
-.sidebar{
-    flex: 1;
-    height: calc(100vh - 50px);
-    background-color: rgb(251, 251, 255);
-    position: sticky;
-    top: 50px;
+
+.sidebar {
+  flex: 1;
+  height: calc(100vh - 48px); 
+  position: sticky;
+  top: 48px;
+  background-color: var(--card-dark); 
+  transition: all 0.3s ease;
+  color: var(--text-dark);
+  overflow-y: auto;
 }
-.sidebarWrapper{
-    padding: 20px;
-    color: #555;
+
+body.light .sidebar {
+  background-color: var(--card-light);
+  color: var(--text-light);
 }
-.sidebarMenu{
-    margin-bottom: 10px;
+
+.sidebarWrapper {
+  padding: 20px;
 }
-.sidebartitle{
-    font-size: 13px;
-    color: rgb(187, 186, 186);
+
+.sidebarMenu {
+  margin-bottom: 10px;
 }
-.sidebarList{
-    list-style: none;
-    padding: 5px;
+
+.sidebartitle {
+  font-size: 13px;
+  color: var(--accent-dark); 
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
-.sidebarListItem{
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+
+body.light .sidebartitle {
+  color: var(--accent-light);
 }
-.sidebarListItem.active,.sidebarListItem:hover{
-    background-color: rgb(240, 240, 255);
+
+.sidebarList {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
 }
-.sidebarIcon{
-    margin-right: 5px;
-    font-size: 20px;
+
+.sidebarListItem {
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: var(--input-radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebarListItem:hover,
+.sidebarListItem.active {
+  background-color: var(--accent-dark, #d29cff);
+  color: var(--btn-text-dark, #1e1b2f);
+}
+
+body.light .sidebarListItem:hover,
+body.light .sidebarListItem.active {
+  background-color: var(--accent-light, #9b59b6);
+  color: var(--btn-text-light, #ffffff);
+}
+
+.sidebarIcon {
+  margin-right: 8px;
+  font-size: 20px;
+  color: inherit;
 }

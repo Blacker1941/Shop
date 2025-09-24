@@ -4,24 +4,31 @@
   font-family: "Vazirmatn", sans-serif;
   margin-top: 53px;
   border-radius: 13px;
+  transition: all 0.3s ease;
 }
+
 body.dark .fancy-bg {
-  background: linear-gradient(to bottom right, #0c0c0c, #1b1b2f);
-  color: #f5f5f5;
+  background: linear-gradient(to bottom right, var(--bg-dark), #1b1b2f);
+  color: var(--text-dark);
 }
+
 body.light .fancy-bg {
-    background: linear-gradient(to bottom right, #f5f5f5, #ffffff);
-    color: #1a1a1a;
+  background: linear-gradient(to bottom right, var(--bg-light), #cdcdcd);
+  color: var(--text-light);
 }
+
 .title {
-    text-align: center;
-    font-size: 100px;
-    text-shadow: 0 0 20px #8b00d1;
-    margin: 0px;
-    margin-bottom: 13px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    display: flex;
+  text-align: center;
+  font-size: 100px;
+  text-shadow: 0 0 20px var(--accent-dark);
+  margin: 0 0 13px 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+  display: flex;
+}
+
+body.light .title {
+  text-shadow: 0 0 20px var(--accent-light);
 }
 
 .search-box.enhanced {
@@ -38,35 +45,51 @@ body.light .fancy-bg {
   border: none;
   border-radius: 6px 0 0 6px;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 body.dark .search-box.enhanced input {
-background: #ffffff;
-  color: #000000;
+  background: var(--card-dark);
+  color: var(--text-dark);
 }
+
 body.light .search-box.enhanced input {
-  background: #000000;
-  color: #ffffff;
+  background: var(--card-light);
+  color: var(--text-light);
 }
+
 body.light .search-box.enhanced input::placeholder {
-  color: #ffffff8f;                
+  color: rgba(0, 0, 0, 0.56);
 }
+
 body.dark .search-box.enhanced input::placeholder {
-  color: #0000009d;                
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .search-box.enhanced button {
   padding: 12px 16px;
-  background: #8b00d1;
   border: none;
-  color: white;
   border-radius: 0 6px 6px 0;
   cursor: pointer;
   transition: background 0.3s;
 }
 
+body.dark .search-box.enhanced button {
+  background: var(--accent-dark);
+  color: var(--btn-text-dark);
+}
+
+body.light .search-box.enhanced button {
+  background: var(--accent-light);
+  color: var(--btn-text-light);
+}
+
 .search-box.enhanced button:hover {
-  background: #6d00aa;
+  background: var(--accent-dark);
+}
+
+body.light .search-box.enhanced button:hover {
+  background: var(--accent-light);
 }
 
 .suggestions {
@@ -74,13 +97,23 @@ body.dark .search-box.enhanced input::placeholder {
   top: 100%;
   left: 0;
   width: 100%;
-  background: #1d1d2f;
   border-radius: 0 0 6px 6px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   padding-left: 0px;
+  transition: all 0.3s ease;
+}
+
+body.dark .suggestions {
+  background: var(--card-dark);
+  color: var(--text-dark);
+}
+
+body.light .suggestions {
+  background: var(--card-light);
+  color: var(--text-light);
 }
 
 .suggestions li {
@@ -89,13 +122,22 @@ body.dark .search-box.enhanced input::placeholder {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #333;
-  color: #ccc;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.2s ease;
+}
+
+body.light .suggestions li {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .suggestions li:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--accent-dark);
+  color: var(--btn-text-dark);
+}
+
+body.light .suggestions li:hover {
+  background-color: var(--accent-light);
+  color: var(--btn-text-light);
 }
 
 .selected-info {
@@ -106,7 +148,7 @@ body.dark .search-box.enhanced input::placeholder {
 
 .sword-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #444;
+  border: 1px solid rgba(139,0,209,0.4);
   padding: 20px 24px;
   border-radius: 10px;
   width: 90%;
@@ -114,29 +156,24 @@ body.dark .search-box.enhanced input::placeholder {
   backdrop-filter: blur(6px);
   box-shadow: 0 0 10px rgba(139, 0, 209, 0.4);
   text-align: right;
+  transition: all 0.3s ease;
+}
+
+body.light .sword-card {
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(155,89,182,0.4);
+  box-shadow: 0 0 10px rgba(155,89,182,0.4);
 }
 
 .sword-card h3 {
   margin: 0 0 10px;
   font-size: 20px;
 }
-body.dark .search-box.enhanced input {
-    color: #fff;
-}
-body.light .search-box.enhanced input {
-    color: #000000;
-}
 
 .sword-card p {
   font-size: 12px;
 }
 
-body.dark .search-box.enhanced input {
-  color: #000000;
-}
-body.light .search-box.enhanced input {
-  color: #ffffff;
-}
 .suggestion-item {
   display: flex;
   align-items: center;
@@ -146,7 +183,13 @@ body.light .search-box.enhanced input {
 }
 
 .suggestion-item:hover {
-  background: #f0f0f0;
+  background: var(--accent-dark);
+  color: var(--btn-text-dark);
+}
+
+body.light .suggestion-item:hover {
+  background: var(--accent-light);
+  color: var(--btn-text-light);
 }
 
 .suggestion-img {
@@ -156,4 +199,3 @@ body.light .search-box.enhanced input {
   border-radius: 4px;
   margin-left: 10px;
 }
-
