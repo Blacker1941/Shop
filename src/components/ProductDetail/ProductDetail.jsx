@@ -13,15 +13,14 @@ const ProductDetail = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
-  const [quantity, setQuantity] = useState(0); // تعداد محصول در سبد
+  const [quantity, setQuantity] = useState(0); 
 
-  // بارگذاری نظرات
+
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem(`reviews_${id}`)) || [];
     setReviews(saved);
   }, [id]);
 
-  // بارگذاری تعداد محصول از localStorage
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const existing = cart.find((item) => item.id === product?.id);

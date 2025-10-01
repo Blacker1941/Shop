@@ -5,7 +5,6 @@ import { FaMoneyCheckAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../LanguageContext"; // گرفتن زبان از Context
 
-// فقط داده فارسی
 const translations = {
   categories: ["همه", "شمشیر", "زره", "گرز", "نیزه", "تبر"],
   prev: "قبلی",
@@ -13,7 +12,6 @@ const translations = {
   pageText: (current, total) => `صفحه ${current} از ${total}`,
 };
 
-// Map برای انگلیسی
 const typeMap = {
   "همه": "All",
   "شمشیر": "Sword",

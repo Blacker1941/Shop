@@ -11,7 +11,6 @@ function App() {
       <TopBar />
       <Routes>
         {routes.map((r) => {
-          // مسیرهای ورود و ثبت‌نام بدون HomeMenu
           if (r.path === "/login" || r.path === "/register") {
             return (
               <Route
@@ -26,7 +25,6 @@ function App() {
             );
           }
 
-          // مسیرهای اصلی با HomeMenu
           return (
             <Route
               key={r.path}

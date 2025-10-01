@@ -23,7 +23,6 @@ const FantasyShopHome = () => {
   
   const navigate = useNavigate();
 
-  // TODO: Check && ?? || and includes 
   const suggestions = swordData.filter(
     (sword) =>
       search &&
