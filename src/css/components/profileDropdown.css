@@ -44,7 +44,6 @@
 
 
 .profile-dropdown {
-  padding: 16px;
   border-radius: 12px;
   min-width: 220px;
   position: absolute;
@@ -57,16 +56,20 @@
 }
 
 .profile-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+    justify-content: center;
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+    height: 100px;
+    border-radius: 50%;
+    width: 100px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 15px;
 }
 
 .email {
@@ -83,19 +86,118 @@
 .profile-actions {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 
 button {
-  border: none;
-  padding: 8px 12px;
-  border-radius: var(--btn-radius);
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: 0.2s ease;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+    background-color: #ffffff00;
+    color: #ffffff;
+    border: none;
 }
 
 button:hover {
-  transform: translateY(-2px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+  
+.name{
+  place-self: center;
+  text-align: center;
+}
+.text-center{
+  text-align: center;
+  text-align-last: center;
+}
+input[type="file"] {
+  display: none; 
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.file-upload-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #2575fc00, #6a11cb1c);
+}
+
+/* لایت مود */
+[data-theme="light"] input[type="text"],
+[data-theme="light"] input[type="email"] {
+  background: #f9f9f9;
+  color: #333;
+  border-color: #ddd;
+}
+
+[data-theme="light"] input[type="text"]:focus,
+[data-theme="light"] input[type="email"]:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+}
+
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"] {
+  background: #2b2b3c;
+  color: #eee;
+  border-color: #444;
+}
+
+[data-theme="dark"] input[type="text"]:focus,
+[data-theme="dark"] input[type="email"]:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 6px rgba(106, 17, 203, 0.5);
+}
+.mb-3{
+  display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.input-names{
+  width: 75%165px;
+    padding: 6px 5px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #4104636e;
+    color: #fff;
+}
+.flexx{
+    margin-bottom: 10px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+.NoOrYes{
+  padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+    background-color: #9b59b62e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.iconYR{
+      padding-right: 8px;
 }
