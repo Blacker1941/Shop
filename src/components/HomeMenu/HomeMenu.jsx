@@ -4,53 +4,39 @@ import { GiBloodySword } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "../../css/components/homeMenu.css";
-import { useLanguage } from "../../LanguageContext"; 
-
-const translations = {
-  fa: {
-    placeholder: "به دنبال چه شمشیری هستی؟",
-    logo: "FS"
-  },
-  en: {
-    placeholder: "Which sword are you looking for?",
-    logo: "FS"
-  }
-};
+import { useTranslation } from "react-i18next";
 
 const FantasyShopHome = () => {
   const [search, setSearch] = useState("");
-  const { lang } = useLanguage();
-  
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
 
   const suggestions = swordData.filter(
     (sword) =>
       search &&
-      sword.name.toLowerCase().includes(search.toLowerCase())
+      sword.name[lang].toLowerCase().includes(search.toLowerCase())
   );
 
   const handleSelect = (sword) => {
-    setSearch(sword.name);
+    setSearch(sword.name[lang]);
     navigate(`/products/${sword.id}`);
   };
 
   return (
     <div className="home-wrapper fancy-bg">
       <h1 className="title" onClick={() => navigate("/")}>
-        <GiBloodySword /> {translations[lang].logo}
+        <GiBloodySword /> FS
       </h1>
 
       <div className="search-box enhanced">
         <input
           type="text"
-          placeholder={translations[lang].placeholder}
+          placeholder={t("home.placeholder")}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          style={{
-            textAlign: lang === "fa" ? "right" : "left"
-          }}
+          style={{ textAlign: lang === "fa" ? "right" : "left" }}
         />
-
         <button>
           <FaSearch />
         </button>
@@ -65,10 +51,10 @@ const FantasyShopHome = () => {
               >
                 <img
                   src={`/img/${s.img}`}
-                  alt={s.name}
+                  alt={s.name[lang]}
                   className="suggestion-img"
                 />
-                <span>{s.name}</span>
+                <span>{s.name[lang]}</span>
               </li>
             ))}
           </ul>

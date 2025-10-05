@@ -1,128 +1,182 @@
 [
   {
     "id": "dragon-fire",
-    "name": "شمشیر اژدهایان کوکستان اتشی",
+    "name": {
+      "fa": "شمشیر اژدهایان کوکستان آتشی",
+      "en": "Dragon Fire Sword"
+    },
     "price": 12000,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "1.jfif"
   },
   {
     "id": "shadow-sword",
-    "name": "شمشیر سایه",
+    "name": {
+      "fa": "شمشیر سایه",
+      "en": "Shadow Sword"
+    },
     "price": 9800,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "2.jfif"
   },
   {
     "id": "darkness-blade",
-    "name": "شمشیر تاریکی",
+    "name": {
+      "fa": "شمشیر تاریکی",
+      "en": "Darkness Blade"
+    },
     "price": 15000,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "light-blade",
-    "name": "شمشیر روشنایی",
+    "name": {
+      "fa": "شمشیر روشنایی",
+      "en": "Light Blade"
+    },
     "price": 8700,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "blood-sword",
-    "name": "شمشیر خون",
+    "name": {
+      "fa": "شمشیر خون",
+      "en": "Blood Sword"
+    },
     "price": 13200,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "ghost-blade",
-    "name": "شمشیر شبح",
+    "name": {
+      "fa": "شمشیر شبح",
+      "en": "Ghost Blade"
+    },
     "price": 14300,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "cursed-blade",
-    "name": "شمشیر نفرین‌شده",
+    "name": {
+      "fa": "شمشیر نفرین‌شده",
+      "en": "Cursed Blade"
+    },
     "price": 16600,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "gods-sword",
-    "name": "شمشیر خدایان",
+    "name": {
+      "fa": "شمشیر خدایان",
+      "en": "Gods Sword"
+    },
     "price": 19900,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "shadow-blades",
-    "name": "شمشیر سایه‌ها",
+    "name": {
+      "fa": "شمشیر سایه‌ها",
+      "en": "Shadow Blades"
+    },
     "price": 15700,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "dragon-blade",
-    "name": "شمشیر اژدها",
+    "name": {
+      "fa": "شمشیر اژدها",
+      "en": "Dragon Blade"
+    },
     "price": 18800,
-    "type": "شمشیر",
+    "type": "Sword",
     "img": "0.jfif"
   },
   {
     "id": "fire-spear",
-    "name": "نیزه آتشین",
+    "name": {
+      "fa": "نیزه آتشین",
+      "en": "Fire Spear"
+    },
     "price": 10200,
-    "type": "نیزه",
+    "type": "Spear",
     "img": "0.jfif"
   },
   {
     "id": "frozen-spear",
-    "name": "نیزه یخ‌زده",
+    "name": {
+      "fa": "نیزه یخ‌زده",
+      "en": "Frozen Spear"
+    },
     "price": 11100,
-    "type": "نیزه",
+    "type": "Spear",
     "img": "0.jfif"
   },
   {
     "id": "crushing-mace",
-    "name": "گرز کوبنده",
+    "name": {
+      "fa": "گرز کوبنده",
+      "en": "Crushing Mace"
+    },
     "price": 13700,
-    "type": "گرز",
+    "type": "Mace",
     "img": "0.jfif"
   },
   {
     "id": "lightning-mace",
-    "name": "گرز برق‌آسا",
+    "name": {
+      "fa": "گرز برق‌آسا",
+      "en": "Lightning Mace"
+    },
     "price": 14500,
-    "type": "گرز",
+    "type": "Mace",
     "img": "0.jfif"
   },
   {
     "id": "dragon-armor",
-    "name": "زره اژدها",
+    "name": {
+      "fa": "زره اژدها",
+      "en": "Dragon Armor"
+    },
     "price": 20000,
-    "type": "زره",
+    "type": "Armor",
     "img": "0.jfif"
   },
   {
     "id": "shadow-armor",
-    "name": "زره سایه‌ها",
+    "name": {
+      "fa": "زره سایه‌ها",
+      "en": "Shadow Armor"
+    },
     "price": 17500,
-    "type": "زره",
+    "type": "Armor",
     "img": "0.jfif"
   },
   {
     "id": "wild-axe",
-    "name": "تبر وحشی",
+    "name": {
+      "fa": "تبر وحشی",
+      "en": "Wild Axe"
+    },
     "price": 16000,
-    "type": "تبر",
+    "type": "Axe",
     "img": "0.jfif"
   },
   {
     "id": "twin-axe",
-    "name": "تبر دوقلو",
+    "name": {
+      "fa": "تبر دوقلو",
+      "en": "Twin Axe"
+    },
     "price": 17000,
-    "type": "تبر",
+    "type": "Axe",
     "img": "0.jfif"
   }
 ]

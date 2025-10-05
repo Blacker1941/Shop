@@ -1,0 +1,107 @@
+{
+  "brand": "FS",
+  "messages": [
+    "📦 Free shipping for orders over 500,000 Toman",
+    "🔥 Special discount up to 70% today only!",
+    "🎁 Special gift for your first purchase",
+    "🚚 Express delivery across the country",
+    "💳 Cash on delivery for specific orders"
+  ],
+  "buttons": {
+    "change_lang": "Change Language",
+    "profile": "Profile",
+    "toggle_theme": "Toggle Theme"
+  },
+  "cart": {
+    "title": "Cart",
+    "total": "Total",
+    "currency": "Sasanian Dinar",
+    "checkout": "Go to Checkout",
+    "empty": "Your cart is empty."
+  },
+  "profileModal": {
+    "title": "Edit Profile",
+    "notLoggedIn": "You are not logged in",
+    "loginButton": "Login",
+    "logoutButton": "Logout",
+    "deleteButton": "Delete Account",
+    "saveButton": "Save",
+    "editButton": "Edit Profile",
+    "joinDate": "Join Date:",
+    "lastLogin": "Last Login:",
+    "role": "Role:",
+    "avatarAlt": "Avatar",
+    "progress": "Progress",
+    "emptyField": "Empty",
+    "cancelButton": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "confirmLogout": "Do you want to log out?",
+    "confirmDelete": "Are you sure you want to delete your account?",
+    "uploadLabel": "Choose File"
+  },
+  "productDetail": {
+    "price": "Price",
+    "type": "Type",
+    "specialFeatures": "This product has special features...",
+    "addToCart": "Add to Cart",
+    "reviews": "User Reviews",
+    "writeReview": "Write your review...",
+    "submitReview": "Submit Review",
+    "noReviews": "No reviews yet.",
+    "productNotFound": "Product not found.",
+    "addedToCart": "Product added to cart!",
+    "quantityReduced": "Product quantity reduced!"
+  },
+  "register": {
+    "title": "Register",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "registerButton": "Register",
+    "registering": "Registering...",
+    "alreadyRegistered": "Already registered?",
+    "login": "Login",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "passwordRequired": "Password is required",
+    "passwordWeak": "Password must be at least 8 characters, include uppercase, lowercase, number and symbol",
+    "confirmPasswordRequired": "Confirm password is required",
+    "passwordMismatch": "Password and confirm password do not match",
+    "emailExists": "❌ This email is already registered",
+    "success": "✅ Registration successful!"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "noAccount": "Don't have an account?",
+    "register": "Register",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "passwordRequired": "Password is required",
+    "wrongCredentials": "❌ Wrong email or password",
+    "welcome": "✅ Welcome back {{name}}!"
+  },
+  "itemList": {
+    "categories": ["All", "Sword", "Armor", "Mace", "Spear", "Axe"],
+    "prev": "Prev",
+    "next": "Next",
+    "pageText": "Page {{current}} of {{total}}"
+  },
+  "types": {
+    "All": "All",
+    "Sword": "Sword",
+    "Armor": "Armor",
+    "Mace": "Mace",
+    "Spear": "Spear",
+    "Axe": "Axe"
+  },
+  "home": {
+    "placeholder": "Which sword are you looking for?"
+  }
+}

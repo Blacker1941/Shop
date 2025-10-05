@@ -4,13 +4,15 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CryptoJS from "crypto-js";
+import { useTranslation } from "react-i18next"; 
 
 export default function Register() {
+  const { t } = useTranslation(); 
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -20,29 +22,28 @@ export default function Register() {
   const validate = () => {
     let errs = {};
 
-    if (!form.name.trim()) errs.name = "نام الزامی است";
+    if (!form.name.trim()) errs.name = t("register.nameRequired");
 
     if (!form.email) {
-      errs.email = "ایمیل الزامی است";
+      errs.email = t("register.emailRequired");
     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-      errs.email = "ایمیل معتبر نیست";
+      errs.email = t("register.emailInvalid");
     }
 
     if (!form.password) {
-      errs.password = "رمز عبور الزامی است";
+      errs.password = t("register.passwordRequired");
     } else if (
       !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/.test(
         form.password
       )
     ) {
-      errs.password =
-        "رمز باید حداقل ۸ کاراکتر شامل حرف بزرگ، کوچک، عدد و نماد باشد";
+      errs.password = t("register.passwordWeak");
     }
 
     if (!form.confirmPassword) {
-      errs.confirmPassword = "تکرار رمز عبور الزامی است";
+      errs.confirmPassword = t("register.confirmPasswordRequired");
     } else if (form.confirmPassword !== form.password) {
-      errs.confirmPassword = "رمز عبور و تکرار آن یکسان نیستند";
+      errs.confirmPassword = t("register.passwordMismatch");
     }
 
     return errs;
@@ -59,7 +60,7 @@ export default function Register() {
       const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
       if (storedUsers.some((u) => u.email === form.email)) {
-        toast.error("❌ این ایمیل قبلاً ثبت شده است");
+        toast.error(t("register.emailExists"));
         setLoading(false);
         return;
       }
@@ -69,13 +70,13 @@ export default function Register() {
       const newUser = {
         name: form.name,
         email: form.email,
-        password: hashedPassword,
+        password: hashedPassword
       };
 
       storedUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(storedUsers));
 
-      toast.success("✅ ثبت‌نام با موفقیت انجام شد!");
+      toast.success(t("register.success"));
 
       setForm({ name: "", email: "", password: "", confirmPassword: "" });
       setLoading(false);
@@ -84,12 +85,12 @@ export default function Register() {
 
   return (
     <div className="register-page">
-      <h2>ثبت‌نام</h2>
+      <h2>{t("register.title")}</h2>
 
       <div className="mb-4">
         <input
           type="text"
-          placeholder="نام"
+          placeholder={t("register.name")}
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
         />
@@ -99,7 +100,7 @@ export default function Register() {
       <div className="mb-4">
         <input
           type="email"
-          placeholder="ایمیل"
+          placeholder={t("register.email")}
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
         />
@@ -109,7 +110,7 @@ export default function Register() {
       <div className="mb-4">
         <input
           type={showPassword ? "text" : "password"}
-          placeholder="رمز عبور"
+          placeholder={t("register.password")}
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
@@ -126,11 +127,9 @@ export default function Register() {
       <div className="mb-4">
         <input
           type={showConfirm ? "text" : "password"}
-          placeholder="تکرار رمز عبور"
+          placeholder={t("register.confirmPassword")}
           value={form.confirmPassword}
-          onChange={(e) =>
-            setForm({ ...form, confirmPassword: e.target.value })
-          }
+          onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
         />
         <button
           type="button"
@@ -139,20 +138,16 @@ export default function Register() {
         >
           {showConfirm ? <FaRegEye /> : <FaRegEyeSlash />}
         </button>
-        {errors.confirmPassword && (
-          <p className="text-sm">{errors.confirmPassword}</p>
-        )}
+        {errors.confirmPassword && <p className="text-sm">{errors.confirmPassword}</p>}
       </div>
 
       <button onClick={handleRegister} disabled={loading}>
-        {loading ? "در حال ثبت‌نام..." : "ثبت‌نام"}
+        {loading ? t("register.registering") : t("register.registerButton")}
       </button>
 
       <p>
-        قبلاً ثبت‌نام کردی؟{" "}
-        <Link to="/login">
-          ورود
-        </Link>
+        {t("register.alreadyRegistered")}{" "}
+        <Link to="/login">{t("register.login")}</Link>
       </p>
 
       <ToastContainer position="top-center" />

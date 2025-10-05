@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"; 
 import "../../css/components/cartDropdown.css";
 
 export default function CartDropdown() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+
 
   const toggleCart = () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -21,7 +25,7 @@ export default function CartDropdown() {
 
   return (
     <div className="cart-container">
-      <button className="icon-btn" title="شاپ" onClick={toggleCart}>
+      <button className="icon-btn" title={t("cart.title")} onClick={toggleCart}>
         <FaShoppingCart />
       </button>
 
@@ -32,9 +36,9 @@ export default function CartDropdown() {
               <ul className="ulshop">
                 {cartItems.map((item) => (
                   <li key={item.id} className="cart-item">
-                    <img src={`/img/${item.img}`} alt={item.name} />
+                    <img src={`/img/${item.img}`} alt={item.name[lang]} />
                     <div>
-                      <p>{item.name}</p>
+                      <p>{item.name[lang]}</p>
                       <small>
                         {item.price.toLocaleString()} × {item.quantity}
                       </small>
@@ -43,20 +47,21 @@ export default function CartDropdown() {
                 ))}
               </ul>
               <div className="cart-total">
-                جمع کل: {totalPrice.toLocaleString()} دینار ساسانی
+                {t("cart.total")}: {totalPrice.toLocaleString()} {t("cart.currency")}
               </div>
               <button
                 className="checkout-btn"
                 onClick={() => navigate("/checkout")}
               >
-                برو به حساب
+                {t("cart.checkout")}
               </button>
             </>
           ) : (
-            <div className="empty-cart">سبد خرید خالی است.</div>
+            <div className="empty-cart">{t("cart.empty")}</div>
           )}
         </div>
       )}
     </div>
   );
 }
+

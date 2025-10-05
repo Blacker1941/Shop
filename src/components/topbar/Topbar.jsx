@@ -4,36 +4,19 @@ import { GiBloodySword } from "react-icons/gi";
 import { MdLanguage } from "react-icons/md";
 import { FaRegUser, FaSun, FaMoon } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "../../LanguageContext";
+import { useTranslation } from "react-i18next";
 import CartDropdown from "./CartDropdown";
-
 import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
 
 export default function TopBar() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const [index, setIndex] = useState(0);
-  const { lang, setLang } = useLanguage();
-  const navigate = useNavigate();
-
   const [showProfile, setShowProfile] = useState(false);
 
-  const messages = {
-    fa: [
-      "📦 ارسال رایگان برای سفارش‌های بالای ۵۰۰ هزار تومان",
-      "🔥 تخفیف ویژه تا ۷۰٪ فقط امروز!",
-      "🎁 هدیه‌ی ویژه برای اولین خرید شما",
-      "🚚 تحویل اکسپرس در سراسر کشور",
-      "💳 پرداخت در محل برای سفارش‌های خاص",
-    ],
-    en: [
-      "📦 Free shipping for orders over 500,000 Toman",
-      "🔥 Special discount up to 70% today only!",
-      "🎁 Special gift for your first purchase",
-      "🚚 Express delivery across the country",
-      "💳 Cash on delivery for specific orders",
-    ],
-  };
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
+  const messages = t("messages", { returnObjects: true });
   const shadowStyles = [
     "0 0 5px #ff0000",
     "0 0 8px #00ff00",
@@ -41,6 +24,11 @@ export default function TopBar() {
     "0 0 6px #00ccff",
     "0 0 5px #ff00ff",
   ];
+
+
+  useEffect(() => {
+    document.documentElement.dir = i18n.language === "fa" ? "rtl" : "ltr";
+  }, [i18n.language]);
 
   useEffect(() => {
     document.body.classList.remove("light", "dark");
@@ -50,20 +38,24 @@ export default function TopBar() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % messages[lang].length);
+      setIndex((prev) => (prev + 1) % messages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [lang]);
+  }, [messages]);
 
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  const toggleLang = () => setLang(lang === "fa" ? "en" : "fa");
+  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+
+  const toggleLang = () => {
+    const newLang = i18n.language === "fa" ? "en" : "fa";
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("lang", newLang);
+  };
 
   return (
     <div className="topbar">
       <div className="topbar-left" onClick={() => navigate("/")}>
         <GiBloodySword className="logo-icon" />
-        <span className="brand-name">FS</span>
+        <span className="brand-name">{t("brand")}</span>
       </div>
 
       <div className="topbar-center">
@@ -71,12 +63,12 @@ export default function TopBar() {
           className="promo-text"
           style={{ textShadow: shadowStyles[index % shadowStyles.length] }}
         >
-          {messages[lang][index]}
+          {messages[index]}
         </span>
       </div>
 
       <div className="topbar-right">
-        <button onClick={toggleLang} className="icon-btn" title="تغییر زبان">
+        <button onClick={toggleLang} className="icon-btn" title={t("buttons.change_lang")}>
           <MdLanguage />
         </button>
 
@@ -86,7 +78,7 @@ export default function TopBar() {
           <button
             onClick={() => setShowProfile(!showProfile)}
             className="icon-btn"
-            title="پروفایل"
+            title={t("buttons.profile")}
           >
             <FaRegUser />
           </button>
@@ -96,7 +88,7 @@ export default function TopBar() {
           )}
         </div>
 
-        <button onClick={toggleTheme} className="icon-btn" title="تغییر تم">
+        <button onClick={toggleTheme} className="icon-btn" title={t("buttons.toggle_theme")}>
           {theme === "dark" ? <FaSun /> : <FaMoon />}
         </button>
       </div>

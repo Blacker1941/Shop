@@ -5,11 +5,13 @@ import CryptoJS from "crypto-js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../css/components/loginModal.css";
+import { useTranslation } from "react-i18next"; 
 
 export default function Login() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     email: "",
-    password: "",
+    password: ""
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
@@ -17,9 +19,9 @@ export default function Login() {
 
   const validate = () => {
     let errs = {};
-    if (!form.email) errs.email = "ایمیل الزامی است";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "ایمیل معتبر نیست";
-    if (!form.password) errs.password = "رمز عبور الزامی است";
+    if (!form.email) errs.email = t("login.emailRequired");
+    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = t("login.emailInvalid");
+    if (!form.password) errs.password = t("login.passwordRequired");
     return errs;
   };
 
@@ -33,7 +35,6 @@ export default function Login() {
     setTimeout(() => {
       const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-      // هش کردن رمز وارد شده
       const hashedPassword = CryptoJS.SHA256(form.password).toString();
 
       const foundUser = storedUsers.find(
@@ -41,16 +42,15 @@ export default function Login() {
       );
 
       if (!foundUser) {
-        toast.error("❌ ایمیل یا رمز عبور اشتباه است");
+        toast.error(t("login.wrongCredentials"));
         setLoading(false);
         return;
       }
 
-      // ذخیره وضعیت لاگین
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("loggedUser", JSON.stringify(foundUser));
 
-      toast.success(`✅ خوش برگشتی ${foundUser.name}!`);
+      toast.success(t("login.welcome", { name: foundUser.name }));
 
       setForm({ email: "", password: "" });
       setLoading(false);
@@ -59,12 +59,12 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <h2>ورود</h2>
+      <h2>{t("login.title")}</h2>
 
       <div className="mb-4">
         <input
           type="email"
-          placeholder="ایمیل"
+          placeholder={t("login.email")}
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
         />
@@ -74,7 +74,7 @@ export default function Login() {
       <div className="mb-4">
         <input
           type={showPassword ? "text" : "password"}
-          placeholder="رمز عبور"
+          placeholder={t("login.password")}
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
@@ -89,11 +89,11 @@ export default function Login() {
       </div>
 
       <button onClick={handleLogin} disabled={loading}>
-        {loading ? "در حال ورود..." : "ورود"}
+        {loading ? t("login.loggingIn") : t("login.loginButton")}
       </button>
 
       <p>
-        اکانت نداری؟ <Link to="/register">ثبت‌نام</Link>
+        {t("login.noAccount")} <Link to="/register">{t("login.register")}</Link>
       </p>
 
       <ToastContainer position="top-center" autoClose={5000} />

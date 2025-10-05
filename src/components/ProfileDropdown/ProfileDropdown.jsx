@@ -3,9 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaEdit, FaSignOutAlt, FaTrash ,FaSave} from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { TiTickOutline } from "react-icons/ti";
+import { useTranslation } from 'react-i18next';
 import "../../css/components/profileDropdown.css";
 
 export default function ProfileModal({ onClose }) {
+  const { t, i18n } = useTranslation(); 
   const [user, setUser] = useState(null);
   const [mode, setMode] = useState("view"); 
   const [preview, setPreview] = useState(null);
@@ -72,9 +74,9 @@ export default function ProfileModal({ onClose }) {
         >
           {!user ? (
             <div className="text-center">
-              <p className="text-lg mb-4">🚪 شما وارد نشدید</p>
+              <p className="text-lg mb-4"> {t('profileModal.notLoggedIn')}</p>
               <button onClick={() => setMode("login")} className="btn-primary">
-                ورود 🔑
+                {t('profileModal.loginButton')}
               </button>
             </div>
           ) : (
@@ -97,7 +99,7 @@ export default function ProfileModal({ onClose }) {
                       <p className="email">{user.email}</p>
                       {user.role && (
                         <p className="text-xs text-yellow-500">
-                          👑 نقش: {user.role}
+                          {t('profileModal.role')} {user.role}
                         </p>
                       )}
                     </div>
@@ -113,14 +115,13 @@ export default function ProfileModal({ onClose }) {
 
                   {user.joinDate && (
                     <p className="text-sm mb-1">
-                      📅 تاریخ عضویت:{" "}
-                      {new Date(user.joinDate).toLocaleDateString("fa-IR")}
+                      {t('profileModal.joinDate')}{' '}
+                      {new Date(user.joinDate).toLocaleDateString(i18n.language === 'fa' ? 'fa-IR' : 'en-US')}
                     </p>
                   )}
                   {user.lastLogin && (
                     <p className="last-login">
-                      ⏰ آخرین ورود:{" "}
-                      {new Date(user.lastLogin).toLocaleString("fa-IR")}
+                      {t('profileModal.lastLogin')}{' '}{new Date(user.lastLogin).toLocaleString(  i18n.language === 'fa' ? 'fa-IR' : 'en-US')}
                     </p>
                   )}
 
@@ -129,19 +130,19 @@ export default function ProfileModal({ onClose }) {
                       onClick={() => setMode("edit")}
                       className="btn-primary"
                     >
-                      <FaEdit /> ویرایش پروفایل
+                      <FaEdit /> {t('profileModal.editButton')}
                     </button>
                     <button
                       onClick={() => setMode("logout")}
                       className="btn-secondary"
                     >
-                      <FaSignOutAlt /> خروج از حساب
+                      <FaSignOutAlt /> {t('profileModal.logoutButton')}
                     </button>
                     <button
                       onClick={() => setMode("delete")}
                       className="btn-danger"
                     >
-                      <FaTrash /> حذف حساب
+                      <FaTrash /> {t("profileModal.deleteButton")}
                     </button>
                   </div>
                 </>
@@ -149,7 +150,7 @@ export default function ProfileModal({ onClose }) {
 
               {mode === "edit" && (
                 <div className="text-center">
-                  <p className="mb-3"> ویرایش پروفایل</p>
+                  <p className="mb-3">{t("profileModal.editButton")}</p>
 
                   <div className="mb-3">
                     <img
@@ -168,7 +169,7 @@ export default function ProfileModal({ onClose }) {
   onChange={handleAvatarChange}
 />
 <label htmlFor="upload" className="file-upload-label">
-   انتخاب تصویر
+  {t("profileModal.uploadLabel")}
 </label>
 
                   </div>
@@ -190,13 +191,13 @@ export default function ProfileModal({ onClose }) {
                       onClick={() => setMode("view")}
                       className="btn-secondary flex-1 NoOrYes"
                     >
-                      <MdOutlineCancel className="iconYR"  /> <p>لغو</p>
+                      <MdOutlineCancel className="iconYR"  /> <p>{t("profileModal.cancelButton")}</p>
                     </button>
                     <button
                       onClick={handleSave}
                       className="btn-primary flex-1 NoOrYes"
                     >
-                      <FaSave className="iconYR" /> <p>سیو</p> 
+                      <FaSave className="iconYR" /> <p>{t("profileModal.saveButton")}</p>
                     </button>
                   </div>
                 </div>
@@ -204,19 +205,19 @@ export default function ProfileModal({ onClose }) {
 
               {mode === "logout" && (
                 <div className="text-center">
-                  <p className="mb-3"> می‌خواهید خارج شوید؟</p>
+                  <p className="mb-3">{t("profileModal.confirmLogout")}</p>
                   <div className="flexx gap-2">
                     <button
                       onClick={() => setMode("view")}
                       className="btn-secondary flex-1 NoOrYes"
                     >
-                      <MdOutlineCancel className="iconYR" /> <p>خیر</p>
+                      <MdOutlineCancel className="iconYR" /> <p>{t("profileModal.no")}</p>
                     </button>
                     <button
                       onClick={handleLogout}
                       className="btn-primary flex-1 NoOrYes"
                     >
-                      <TiTickOutline className="iconYR" /> <p>بله</p>
+                      <TiTickOutline className="iconYR" /> <p>{t("profileModal.yes")}</p>
                     </button>
                   </div>
                 </div>
@@ -224,19 +225,19 @@ export default function ProfileModal({ onClose }) {
 
               {mode === "delete" && (
                 <div className="text-center">
-                  <p className="mb-3"> مطمئنید می‌خواهید حساب خود را حذف کنید؟</p>
+                  <p className="mb-3">{t("profileModal.confirmDelete")}</p>
                   <div className="flexx gap-2">
                     <button
                       onClick={() => setMode("view")}
                       className="btn-secondary flex-1 NoOrYes"
                     >
-                      <MdOutlineCancel className="iconYR" /> <p>خیر</p>
+                      <MdOutlineCancel className="iconYR" /> <p>{t("profileModal.no")}</p>
                     </button>
                     <button
                       onClick={handleDelete}
                       className="btn-danger flex-1 NoOrYes"
                     >
-                      <TiTickOutline className="iconYR" /> <p>بله</p>
+                      <TiTickOutline className="iconYR" /> <p>{t("profileModal.yes")}</p>
                     </button> 
                   </div>
                 </div>
