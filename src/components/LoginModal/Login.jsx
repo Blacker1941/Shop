@@ -8,7 +8,7 @@ import "../../css/components/loginModal.css";
 import { useTranslation } from "react-i18next"; 
 
 export default function Login() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [form, setForm] = useState({
     email: "",
     password: ""
@@ -16,6 +16,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+
 
   const validate = () => {
     let errs = {};

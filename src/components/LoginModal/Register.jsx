@@ -7,7 +7,7 @@ import CryptoJS from "crypto-js";
 import { useTranslation } from "react-i18next"; 
 
 export default function Register() {
-  const { t } = useTranslation(); 
+    const { t, i18n } = useTranslation();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -18,6 +18,8 @@ export default function Register() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  
+
 
   const validate = () => {
     let errs = {};

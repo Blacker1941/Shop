@@ -5,12 +5,14 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TiTickOutline } from "react-icons/ti";
 import { useTranslation } from 'react-i18next';
 import "../../css/components/profileDropdown.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileModal({ onClose }) {
   const { t, i18n } = useTranslation(); 
   const [user, setUser] = useState(null);
   const [mode, setMode] = useState("view"); 
   const [preview, setPreview] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
@@ -75,7 +77,7 @@ export default function ProfileModal({ onClose }) {
           {!user ? (
             <div className="text-center">
               <p className="text-lg mb-4"> {t('profileModal.notLoggedIn')}</p>
-              <button onClick={() => setMode("login")} className="btn-primary">
+              <button  onClick={() => navigate("/login")} className="btn-primary"> 
                 {t('profileModal.loginButton')}
               </button>
             </div>

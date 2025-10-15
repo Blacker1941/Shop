@@ -5,9 +5,11 @@ import swordData from "../../data/swords.json";
 import "../../css/components/productDetail.css";
 
 const ProductDetail = () => {
-  const { t } = useTranslation(); 
+    const { t, i18n } = useTranslation();
   const { id } = useParams();
   const product = swordData.find((s) => s.id.toString() === id);
+  const lang = i18n.language;
+
 
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState("");
@@ -86,10 +88,10 @@ const ProductDetail = () => {
     <div className="product-detail">
       {showToast && <div className="toast">{toastMessage}</div>}
 
-      <img src={`/img/${product.img}`} alt={product.name} className="product-img" />
-      <h2>{product.name}</h2>
+      <img src={`/img/${product.img}`} alt={product.name[lang]} className="product-img" />
+      <h2>{product.name[lang]}</h2>
       <p>{t("productDetail.price")}: {product.price.toLocaleString()} دینار ساسانی</p>
-      <p>{t("productDetail.type")}: {product.type}</p>
+      <p>{t("productDetail.type")}: {product.type[lang]}</p>
       <p>{t("productDetail.specialFeatures")}</p>
 
       {quantity === 0 ? (

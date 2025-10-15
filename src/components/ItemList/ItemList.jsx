@@ -27,6 +27,7 @@ const ItemList = () => {
     [t("types.Axe")]: "Axe",
   };
 
+
   const filtered = swords.filter((item) => {
     if (selectedCategory === "All") return true;
     return item.type.en === selectedCategory;
